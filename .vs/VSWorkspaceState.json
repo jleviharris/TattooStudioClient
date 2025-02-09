@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.angular",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\user-list",
+    "\\src\\app\\services",
+    "\\src\\assets",
+    "\\src\\environments"
   ],
+  "SelectedNode": "\\tsconfig.json",
   "PreviewInSolutionExplorer": false
 }
