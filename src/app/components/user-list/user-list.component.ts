@@ -70,11 +70,12 @@ export class UserListComponent implements OnInit {
       (newUser) => {
         this.users.push(newUser);
         this.newUser = { firstName: '', lastName: '', email: '', passwordHash: '', role: 'TattooArtist' };
-        this.cdRef.detectChanges(); // ✅ Ensure UI updates immediately
       },
       (error) => {
+        alert(error.message); // Show error message if the email is already in use
         console.error('Error adding user', error);
       }
     );
   }
+
 }

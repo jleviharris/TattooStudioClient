@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   private apiUrl = environment.apiUrl;
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -20,8 +24,16 @@ export class ApiService {
   }
 
   addUser(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users`, user);
+    return this.http.post(`${this.apiUrl}/users`, user, this.httpOptions).pipe(
+      catchError((error) => {
+        if (error.status === 409) {
+          return throwError(() => new Error('A user with this email already exists.'));
+        }
+        return throwError(() => new Error('Failed to add user.'));
+      })
+    );
   }
+
 
   deleteUser(userId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/users/${userId}`);
