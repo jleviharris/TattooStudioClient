@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { UserListComponent } from './components/user-list/user-list.component';
 
 @Component({
@@ -10,5 +10,14 @@ import { UserListComponent } from './components/user-list/user-list.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tattoo-studio-client';
+  constructor(private router: Router) { }
+
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

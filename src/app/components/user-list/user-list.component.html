@@ -1,22 +1,33 @@
-<h2>User List</h2>
 
-<!-- User Form -->
-<form (submit)="addUser(); $event.preventDefault()" class="user-form">
-  <input type="text" [(ngModel)]="newUser.firstName" name="firstName" placeholder="First Name" required>
-  <input type="text" [(ngModel)]="newUser.lastName" name="lastName" placeholder="Last Name" required>
-  <input type="email" [(ngModel)]="newUser.email" name="email" placeholder="Email" required>
-  <input type="password" [(ngModel)]="newUser.passwordHash" name="passwordHash" placeholder="Password" required>
-  <select [(ngModel)]="newUser.role" name="role">
-    <option value="TattooArtist">Tattoo Artist</option>
-    <option value="Admin">Admin</option>
-  </select>
-  <button type="submit">Add User</button>
-</form>
+<div class="user-list-container">
+  <h2>User Management</h2>
 
-<!-- User List -->
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.firstName }} {{ user.lastName }} ({{ user.email }}) - Role: {{ user.role }}
-    <button (click)="deleteUser(user.rowKey)">🗑️ Delete</button> <!-- ✅ Delete Button -->
-  </li>
-</ul>
+  <!-- User Form -->
+  <form (submit)="addUser(); $event.preventDefault()" class="user-form">
+    <div class="input-group">
+      <input type="text" [(ngModel)]="newUser.firstName" name="firstName" placeholder="First Name" required>
+      <input type="text" [(ngModel)]="newUser.lastName" name="lastName" placeholder="Last Name" required>
+    </div>
+
+    <div class="input-group">
+      <input type="email" [(ngModel)]="newUser.email" name="email" placeholder="Email" required>
+      <input type="password" [(ngModel)]="newUser.passwordHash" name="passwordHash" placeholder="Password" required>
+    </div>
+
+    <div class="input-group">
+      <select [(ngModel)]="newUser.role" name="role">
+        <option value="TattooArtist">Tattoo Artist</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <button type="submit">Add User</button>
+    </div>
+  </form>
+
+  <!-- User List -->
+  <ul class="user-list">
+    <li *ngFor="let user of users" class="user-item">
+      <span>{{ user.firstName }} {{ user.lastName }} ({{ user.email }}) - Role: {{ user.role }}</span>
+      <button class="delete-btn" (click)="deleteUser(user.rowKey)">Delete</button>
+    </li>
+  </ul>
+</div>

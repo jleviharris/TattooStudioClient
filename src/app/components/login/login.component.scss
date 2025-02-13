@@ -1,0 +1,85 @@
+// Colors
+$bg-color: #2c2c2c; // Dark gray
+$box-bg: #3a3a3a; // Slightly lighter gray for contrast
+$text-color: #e0e0e0; // Softer white
+$input-bg: #4a4a4a; // Dark input field
+$input-border: #666; // Border color
+$btn-bg: #008cba; // Muted cyan (change if preferred)
+$btn-hover: #0073a1;
+
+// Fullscreen Background
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $bg-color;
+}
+
+// Login Box
+.login-box {
+  background: $box-bg;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+// 
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+
+// Input Fields
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    color: $text-color;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $input-border;
+    background: $input-bg;
+    color: $text-color;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: $btn-bg;
+      box-shadow: 0 0 5px rgba(0, 140, 186, 0.5);
+    }
+  }
+}
+
+// Login Button
+button {
+  width: 100%;
+  padding: 12px;
+  background: $btn-bg;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+
+  &:hover {
+    background: $btn-hover;
+  }
+}

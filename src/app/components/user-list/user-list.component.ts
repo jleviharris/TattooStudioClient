@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChangeDetectorRef } from '@angular/core'; // ✅ Import ChangeDetectorRef
+import { ChangeDetectorRef } from '@angular/core'; //  Import ChangeDetectorRef
 
 @Component({
   selector: 'app-user-list',
@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
   };
 
   private apiService = inject(ApiService);
-  private cdRef = inject(ChangeDetectorRef); // ✅ Inject ChangeDetectorRef
+  private cdRef = inject(ChangeDetectorRef); //  Inject ChangeDetectorRef
 
   ngOnInit(): void {
     this.loadUsers();
@@ -33,8 +33,8 @@ export class UserListComponent implements OnInit {
     this.apiService.getUsers().subscribe(
       (data) => {
         this.users = data;
-        console.log('Users loaded:', this.users); // ✅ Debugging output
-        this.cdRef.detectChanges(); // ✅ Force change detection
+        console.log('Users loaded:', this.users); //  Debugging output
+        this.cdRef.detectChanges(); //  Force change detection
       },
       (error) => {
         console.error('Error fetching users', error);
@@ -49,7 +49,7 @@ export class UserListComponent implements OnInit {
 
     this.apiService.deleteUser(userId).subscribe(
       () => {
-        this.users = this.users.filter(user => user.rowKey !== userId); // ✅ Remove from UI
+        this.users = this.users.filter(user => user.rowKey !== userId); //  Remove from UI
       },
       (error) => {
         console.error('Error deleting user', error);
