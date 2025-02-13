@@ -9,6 +9,13 @@ $btn-hover: #0073a1;
 $delete-bg: #ff4d4d;
 $delete-hover: #d13a3a;
 
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+
 // Main Layout Fix
 .user-list-container {
   width: 90%;
@@ -20,6 +27,8 @@ $delete-hover: #d13a3a;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
+
 
 h2 {
   font-size: 22px;
