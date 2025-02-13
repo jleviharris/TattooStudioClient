@@ -13,6 +13,15 @@ export class ApiService {
 
   // Example: Fetch Users
   getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/Users`);
+    return this.http.get(`${this.apiUrl}/users`);
   }
+
+  addUser(user: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users`, user);
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/users/${userId}`);
+  }
+
 }

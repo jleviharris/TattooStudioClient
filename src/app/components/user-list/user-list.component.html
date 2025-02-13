@@ -1,6 +1,22 @@
 <h2>User List</h2>
+
+<!-- User Form -->
+<form (submit)="addUser(); $event.preventDefault()" class="user-form">
+  <input type="text" [(ngModel)]="newUser.firstName" name="firstName" placeholder="First Name" required>
+  <input type="text" [(ngModel)]="newUser.lastName" name="lastName" placeholder="Last Name" required>
+  <input type="email" [(ngModel)]="newUser.email" name="email" placeholder="Email" required>
+  <input type="password" [(ngModel)]="newUser.passwordHash" name="passwordHash" placeholder="Password" required>
+  <select [(ngModel)]="newUser.role" name="role">
+    <option value="TattooArtist">Tattoo Artist</option>
+    <option value="Admin">Admin</option>
+  </select>
+  <button type="submit">Add User</button>
+</form>
+
+<!-- User List -->
 <ul>
   <li *ngFor="let user of users">
-    {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
+    {{ user.firstName }} {{ user.lastName }} ({{ user.email }}) - Role: {{ user.role }}
+    <button (click)="deleteUser(user.rowKey)">🗑️ Delete</button> <!-- ✅ Delete Button -->
   </li>
 </ul>

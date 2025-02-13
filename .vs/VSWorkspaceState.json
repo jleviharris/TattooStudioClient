@@ -10,6 +10,6 @@
     "\\src\\assets",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\tsconfig.json",
+  "SelectedNode": "\\src\\app\\components\\user-list\\user-list.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }
